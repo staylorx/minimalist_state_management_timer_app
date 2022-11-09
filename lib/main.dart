@@ -4,17 +4,17 @@ import 'pages/timer_page/timer_page.dart';
 
 void main() {
   setupGetIt();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  @override 
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: TimerPage(),
     );
   }
 }
-

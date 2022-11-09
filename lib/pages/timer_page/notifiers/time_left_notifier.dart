@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:timer_app/services/service_locator.dart';
-import 'package:timer_app/services/storage_service/storage_service.dart';
+import 'package:minimalist_state_management_timer_app/services/service_locator.dart';
+import 'package:minimalist_state_management_timer_app/services/storage_service/storage_service.dart';
 
 class TimeLeftNotifier extends ValueNotifier<String> {
   TimeLeftNotifier() : super(_durationString(_initialValue));
@@ -78,7 +78,7 @@ class TimeLeftNotifier extends ValueNotifier<String> {
 class Ticker {
   Stream<int> tick({required int ticks}) {
     return Stream.periodic(
-      Duration(seconds: 1),
+      const Duration(seconds: 1),
       (x) => ticks - x - 1,
     ).take(ticks);
   }

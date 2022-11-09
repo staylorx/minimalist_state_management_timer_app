@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:timer_app/services/service_locator.dart';
-import 'package:timer_app/pages/timer_page/timer_page_logic.dart';
+import 'package:minimalist_state_management_timer_app/pages/timer_page/timer_page_logic.dart';
+import 'package:minimalist_state_management_timer_app/services/service_locator.dart';
+import 'package:logger/logger.dart';
+
+final logger = Logger();
 
 class TimerPage extends StatefulWidget {
+  const TimerPage({super.key});
+
   @override
-  _TimerPageState createState() => _TimerPageState();
+  TimerPageState createState() => TimerPageState();
 }
 
-class _TimerPageState extends State<TimerPage> {
+class TimerPageState extends State<TimerPage> {
   final stateManager = getIt<TimerPageManager>();
 
   @override
@@ -24,13 +29,13 @@ class _TimerPageState extends State<TimerPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('building MyHomePage');
+    logger.d('building MyHomePage');
     return Scaffold(
-      appBar: AppBar(title: Text('My Timer App')),
+      appBar: AppBar(title: const Text('My Timer App')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: const <Widget>[
             TimerTextWidget(),
             SizedBox(height: 20),
             ButtonsContainer(),
@@ -49,7 +54,7 @@ class TimerTextWidget extends StatelessWidget {
     return ValueListenableBuilder<String>(
       valueListenable: stateManager.timeLeftNotifier,
       builder: (context, timeLeft, child) {
-        print('building time left state: $timeLeft');
+        logger.d('building time left state: $timeLeft');
         return Text(
           timeLeft,
           style: Theme.of(context).textTheme.headline2,
@@ -68,25 +73,25 @@ class ButtonsContainer extends StatelessWidget {
     return ValueListenableBuilder<ButtonState>(
       valueListenable: stateManager.buttonNotifier,
       builder: (context, buttonState, child) {
-        print('building button state: $buttonState');
+        logger.d('building button state: $buttonState');
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (buttonState == ButtonState.initial) ...[
-              StartButton(),
+              const StartButton(),
             ],
             if (buttonState == ButtonState.started) ...[
-              PauseButton(),
-              SizedBox(width: 20),
-              ResetButton(),
+              const PauseButton(),
+              const SizedBox(width: 20),
+              const ResetButton(),
             ],
             if (buttonState == ButtonState.paused) ...[
-              StartButton(),
-              SizedBox(width: 20),
-              ResetButton(),
+              const StartButton(),
+              const SizedBox(width: 20),
+              const ResetButton(),
             ],
             if (buttonState == ButtonState.finished) ...[
-              ResetButton(),
+              const ResetButton(),
             ],
           ],
         );
@@ -104,7 +109,7 @@ class StartButton extends StatelessWidget {
         final stateManager = getIt<TimerPageManager>();
         stateManager.start();
       },
-      child: Icon(Icons.play_arrow),
+      child: const Icon(Icons.play_arrow),
     );
   }
 }
@@ -118,7 +123,7 @@ class PauseButton extends StatelessWidget {
         final stateManager = getIt<TimerPageManager>();
         stateManager.pause();
       },
-      child: Icon(Icons.pause),
+      child: const Icon(Icons.pause),
     );
   }
 }
@@ -132,7 +137,7 @@ class ResetButton extends StatelessWidget {
         final stateManager = getIt<TimerPageManager>();
         stateManager.reset();
       },
-      child: Icon(Icons.replay),
+      child: const Icon(Icons.replay),
     );
   }
 }
