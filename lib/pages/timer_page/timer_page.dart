@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:minimalist_state_management_timer_app/pages/timer_page/timer_page_logic.dart';
 import 'package:minimalist_state_management_timer_app/services/service_locator.dart';
-import 'package:logger/logger.dart';
 
 final logger = Logger();
 

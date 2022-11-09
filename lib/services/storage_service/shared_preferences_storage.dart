@@ -1,6 +1,5 @@
+import 'package:minimalist_state_management_timer_app/services/storage_service/storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'storage_service.dart';
 
 class SharedPreferencesStorage extends StorageService {
   static const timeLeftKey = 'time_left';

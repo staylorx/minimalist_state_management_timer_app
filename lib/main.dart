@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'services/service_locator.dart';
-import 'pages/timer_page/timer_page.dart';
+import 'package:minimalist_state_management_timer_app/pages/timer_page/timer_page.dart';
+import 'package:minimalist_state_management_timer_app/services/service_locator.dart';
 
 void main() {
   setupGetIt();

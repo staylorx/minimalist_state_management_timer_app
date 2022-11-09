@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:minimalist_state_management_timer_app/services/service_locator.dart';
 import 'package:minimalist_state_management_timer_app/services/storage_service/storage_service.dart';

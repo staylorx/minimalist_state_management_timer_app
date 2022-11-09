@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'notifiers/time_left_notifier.dart';
+import 'package:minimalist_state_management_timer_app/pages/timer_page/notifiers/time_left_notifier.dart';
 
 class TimerPageManager {
   // state notifiers
